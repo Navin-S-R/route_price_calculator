@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include route_price_calculator *.css
+recursive-include route_price_calculator *.csv
+recursive-include route_price_calculator *.html
+recursive-include route_price_calculator *.ico
+recursive-include route_price_calculator *.js
+recursive-include route_price_calculator *.json
+recursive-include route_price_calculator *.md
+recursive-include route_price_calculator *.png
+recursive-include route_price_calculator *.py
+recursive-include route_price_calculator *.svg
+recursive-include route_price_calculator *.txt
+recursive-exclude route_price_calculator *.pyc
