@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:ROUTE PRICE-{MM}-{YY}-{#####}",
+ "autoname": "format:RoutePrice--{DD}-{MM}-{YY}-{####}",
  "creation": "2023-09-05 16:00:21.326777",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -10,6 +10,7 @@
   "response_section",
   "route",
   "summary",
+  "column_break_bigwl",
   "costs",
   "tolls",
   "column_break_33rtk",
@@ -26,24 +27,48 @@
   "to_place_id",
   "to_address_latitiude",
   "to_address_longitude",
+  "departure_time",
   "section_break_c0g8n",
   "waypoints",
   "section_break_yadmj",
   "vehicle_type",
-  "departure_time",
+  "mother_state",
   "column_break_qikae",
+  "seating_capacity",
+  "sleeper_capacity",
+  "taxes_column",
+  "adblue",
+  "insurance",
+  "mother_tax",
+  "aitp",
+  "fuel_details_section",
+  "primary_filling_location",
+  "fuel_price_primary_location",
+  "primary_filling_qty",
+  "column_break_wwugj",
+  "secondary_filling_location",
+  "fuel_price_secondary_location",
+  "secondary_filling_qty",
+  "column_break_y6bgu",
   "fuel_price",
   "fuel_price_currency",
+  "fuel_expense",
   "fuel_efficiency_section",
   "city_mileage",
   "highway_mileage",
   "column_break_mszcc",
   "milage_units",
-  "driver_expense_section",
-  "wage",
-  "column_break_tesz4",
-  "rounding",
-  "value_of_time"
+  "trip_expense_section",
+  "tn_entry_tax",
+  "police_challansrto",
+  "column_break_5hpqd",
+  "salaries",
+  "parking",
+  "maintenance",
+  "column_break_nrber",
+  "water",
+  "fleet_management",
+  "linens"
  ],
  "fields": [
   {
@@ -168,7 +193,8 @@
   },
   {
    "fieldname": "section_break_yadmj",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Vehicle Type"
   },
   {
    "fieldname": "vehicle_type",
@@ -223,33 +249,156 @@
    "label": "Milage Units"
   },
   {
-   "fieldname": "driver_expense_section",
-   "fieldtype": "Section Break",
-   "label": "Driver Expense"
+   "fieldname": "mother_state",
+   "fieldtype": "Data",
+   "label": "Mother State"
   },
   {
-   "fieldname": "wage",
+   "fieldname": "seating_capacity",
+   "fieldtype": "Int",
+   "label": "Seating Capacity"
+  },
+  {
+   "fieldname": "sleeper_capacity",
+   "fieldtype": "Int",
+   "label": "Sleeper Capacity"
+  },
+  {
+   "fieldname": "taxes_column",
+   "fieldtype": "Column Break",
+   "label": "Taxes"
+  },
+  {
+   "fieldname": "adblue",
    "fieldtype": "Currency",
-   "label": "Wage"
+   "label": "Adblue"
   },
   {
-   "fieldname": "column_break_tesz4",
+   "fieldname": "insurance",
+   "fieldtype": "Currency",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "mother_tax",
+   "fieldtype": "Currency",
+   "label": "Mother Tax"
+  },
+  {
+   "fieldname": "aitp",
+   "fieldtype": "Currency",
+   "label": "AITP"
+  },
+  {
+   "fieldname": "fuel_details_section",
+   "fieldtype": "Section Break",
+   "label": "Fuel Details"
+  },
+  {
+   "fieldname": "primary_filling_location",
+   "fieldtype": "Link",
+   "label": "Primary Filling Location",
+   "options": "Fuel Outlet"
+  },
+  {
+   "fieldname": "fuel_price_primary_location",
+   "fieldtype": "Currency",
+   "label": "Fuel Price Primary Location"
+  },
+  {
+   "fieldname": "primary_filling_qty",
+   "fieldtype": "Float",
+   "label": "Primary Filling Qty"
+  },
+  {
+   "fieldname": "column_break_wwugj",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "rounding",
-   "fieldtype": "Float",
-   "label": "Rounding"
+   "fieldname": "secondary_filling_location",
+   "fieldtype": "Link",
+   "label": "Secondary Filling Location",
+   "options": "Fuel Outlet"
   },
   {
-   "fieldname": "value_of_time",
+   "fieldname": "fuel_price_secondary_location",
+   "fieldtype": "Currency",
+   "label": "Fuel Price Secondary Location"
+  },
+  {
+   "fieldname": "secondary_filling_qty",
    "fieldtype": "Float",
-   "label": "Value Of Time"
+   "label": "Secondary Filling Qty"
+  },
+  {
+   "fieldname": "column_break_y6bgu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fuel_expense",
+   "fieldtype": "Currency",
+   "label": "Fuel Expense"
+  },
+  {
+   "fieldname": "trip_expense_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Expense"
+  },
+  {
+   "fieldname": "tn_entry_tax",
+   "fieldtype": "Currency",
+   "label": "TN Entry tax"
+  },
+  {
+   "fieldname": "police_challansrto",
+   "fieldtype": "Currency",
+   "label": "Police Challans/RTO"
+  },
+  {
+   "fieldname": "column_break_5hpqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "salaries",
+   "fieldtype": "Currency",
+   "label": "Salaries"
+  },
+  {
+   "fieldname": "maintenance",
+   "fieldtype": "Currency",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "column_break_nrber",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "water",
+   "fieldtype": "Currency",
+   "label": "Water"
+  },
+  {
+   "fieldname": "fleet_management",
+   "fieldtype": "Currency",
+   "label": "Fleet Management"
+  },
+  {
+   "fieldname": "linens",
+   "fieldtype": "Currency",
+   "label": "Linens"
+  },
+  {
+   "fieldname": "parking",
+   "fieldtype": "Currency",
+   "label": "Parking"
+  },
+  {
+   "fieldname": "column_break_bigwl",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-05 16:20:35.119084",
+ "modified": "2023-09-07 18:02:50.732297",
  "modified_by": "Administrator",
  "module": "Route Price Calculator",
  "name": "Route Price",

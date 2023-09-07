@@ -108,7 +108,29 @@ def calculate_route_price(docname):
 			"milage_units",
 			"wage",
 			"rounding",
-			"value_of_time"
+			"value_of_time",
+			"mother_state",
+			"seating_capacity",
+			"sleeper_capacity",
+			"adblue",
+			"insurance",
+			"mother_tax",
+			"aitp",
+			"primary_filling_location",
+			"fuel_price_primary_location",
+			"primary_filling_qty",
+			"secondary_filling_location",
+			"secondary_filling_qty",
+			"fuel_price_secondary_location",
+			"fuel_expense",
+			"tn_entry_tax",
+			"police_challansrto",
+			"salaries",
+			"maintenance",
+			"parking",
+			"water",
+			"fleet_management",
+			"linens"
 		]
 		for field in field_list:
 			doc_values[field] = rpc_doc.get(field)
@@ -123,3 +145,5 @@ def calculate_route_price(docname):
 		route_price_doc.overall_response = json.dumps(response,indent=4)
 		route_price_doc.save()
 		return route_price_doc.name
+	else:
+		print(response)
