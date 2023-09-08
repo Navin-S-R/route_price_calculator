@@ -7,14 +7,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "response_section",
-  "route",
-  "summary",
-  "column_break_bigwl",
-  "costs",
-  "tolls",
-  "column_break_33rtk",
-  "overall_response",
+  "summary_section",
+  "trip_distance",
+  "column_break_6uzsh",
+  "minimum_toll_fee",
+  "column_break_vvaki",
+  "route_location_url",
   "input_details_section",
   "determine_location_by",
   "section_break_h3m9i",
@@ -68,7 +66,15 @@
   "column_break_nrber",
   "water",
   "fleet_management",
-  "linens"
+  "linens",
+  "response_section",
+  "route",
+  "summary",
+  "column_break_bigwl",
+  "costs",
+  "tolls",
+  "column_break_33rtk",
+  "overall_response"
  ],
  "fields": [
   {
@@ -394,11 +400,39 @@
   {
    "fieldname": "column_break_bigwl",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "trip_distance",
+   "fieldtype": "Float",
+   "label": "Trip Distance"
+  },
+  {
+   "fieldname": "column_break_6uzsh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "minimum_toll_fee",
+   "fieldtype": "Currency",
+   "label": "Minimum Toll Fee"
+  },
+  {
+   "fieldname": "column_break_vvaki",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route_location_url",
+   "fieldtype": "Small Text",
+   "label": "Route Location URL"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-07 18:02:50.732297",
+ "modified": "2023-09-07 18:31:47.451344",
  "modified_by": "Administrator",
  "module": "Route Price Calculator",
  "name": "Route Price",

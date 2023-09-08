@@ -4,6 +4,7 @@
 import frappe
 import requests
 import json
+from frappe import _
 from frappe.model.document import Document
 
 class RoutePricecalculator(Document):
@@ -73,11 +74,6 @@ def calculate_route_price(docname):
 			"city": rpc_doc.city_mileage,
 			"hwy": rpc_doc.highway_mileage,
 			"units": rpc_doc.milage_units
-		},
-		"driver": {
-			"wage": rpc_doc.wage,
-			"rounding": rpc_doc.rounding,
-			"valueOfTime": rpc_doc.value_of_time
 		}
 	})
 	headers = {
@@ -143,7 +139,10 @@ def calculate_route_price(docname):
 		route_price_doc.costs = json.dumps(response.get("routes")[0].get("costs"), indent = 4)
 		route_price_doc.tolls = json.dumps(response.get("routes")[0].get("tolls"), indent = 4)
 		route_price_doc.overall_response = json.dumps(response,indent=4)
+		route_price_doc.trip_distance = float(response.get("routes")[0].get("summary").get("distance").get('metric').split()[0])
+		route_price_doc.minimum_toll_fee = float(response.get("routes")[0].get("costs").get('minimumTollCost'))
+		route_price_doc.route_location_url = response.get("routes")[0].get("summary").get('url')
 		route_price_doc.save()
 		return route_price_doc.name
 	else:
-		print(response)
+		frappe.throw(response.get("message"), title=_(f'Error {response.get("status")}'))
